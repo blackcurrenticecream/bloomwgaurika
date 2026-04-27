@@ -26,7 +26,7 @@ export default function App() {
 
   const toggleAudio = () => {
     if (!audioRef.current) {
-      audioRef.current = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'); // Fallback high-quality piano track usually works better but using a placeholder
+      audioRef.current = new Audio('/i_think_they_call_this_love.mp3');
       audioRef.current.loop = true;
     }
     
@@ -112,6 +112,36 @@ export default function App() {
 
       <main className="relative z-10 space-y-32 md:space-y-64 pb-32">
         
+        {/* Compatibility Card */}
+        <section className="max-w-sm mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 40, rotate: -1 }}
+            whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="bg-white/60 backdrop-blur-md border border-jayrika-gold/30 rounded-[2rem] p-10 text-center card-shadow relative overflow-hidden"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-jayrika-gold/5 via-transparent to-jayrika-burgundy/5 pointer-events-none" />
+            <div className="relative z-10">
+              <div className="w-16 h-16 rounded-full bg-pink-100 flex items-center justify-center mx-auto mb-4 shadow-inner">
+                <Heart className="w-8 h-8 text-pink-400 fill-current" />
+              </div>
+              <div className="text-5xl font-header italic text-jayrika-burgundy mb-1">100%</div>
+              <div className="text-[9px] uppercase tracking-[0.4em] font-bold text-jayrika-gold mb-6">Compatibility</div>
+              <div className="border border-jayrika-gold/20 rounded-xl p-4 mb-4 bg-white/40">
+                <div className="text-[8px] uppercase tracking-[0.3em] text-jayrika-gold/70 mb-2">Official Ship Name</div>
+                <div className="text-3xl font-header italic text-jayrika-burgundy">Jayrika</div>
+              </div>
+              <p className="font-header italic text-jayrika-burgundy/60 text-sm leading-relaxed">
+                "You two are perfectly synced.<br/>A true dynamic masterpiece."
+              </p>
+              <div className="mt-4 text-[8px] uppercase tracking-[0.4em] text-jayrika-gold/50 font-bold">
+                Relationship Status: Soulmates
+              </div>
+            </div>
+          </motion.div>
+        </section>
+
         {/* Act I: The Digital Genesis */}
         <section className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <motion.div
